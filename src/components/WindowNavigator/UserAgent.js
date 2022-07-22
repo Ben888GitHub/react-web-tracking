@@ -4,6 +4,7 @@ function UserAgent({ userAgent }) {
 	const [browser, setBrowser] = useState('');
 
 	useEffect(() => {
+		console.log('Hey');
 		if (userAgent.indexOf('Firefox') > -1) {
 			setBrowser('Mozilla Firefox');
 		} else if (userAgent.indexOf('SamsungBrowser') > -1) {
@@ -24,7 +25,7 @@ function UserAgent({ userAgent }) {
 		} else {
 			setBrowser('unknown');
 		}
-	}, [browser]);
+	}, [userAgent]);
 
 	return (
 		<>
