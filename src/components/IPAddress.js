@@ -11,6 +11,9 @@ function IPAddress() {
 		const { data } = await axios.get('https://geolocation-db.com/json/');
 
 		data && setIpAddress(data);
+	};
+
+	const getPublicIp = async () => {
 		setV4Address(await publicIpv4());
 	};
 
@@ -20,6 +23,7 @@ function IPAddress() {
 	};
 	useEffect(() => {
 		getIpData();
+		getPublicIp();
 		getIpAPI();
 	}, []);
 
