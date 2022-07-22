@@ -1,4 +1,14 @@
-import { BrowserView, MobileView } from 'react-device-detect';
+import {
+	BrowserView,
+	MobileView,
+	browserName,
+	browserVersion,
+	isMobile,
+	engineName,
+	engineVersion,
+	osName,
+	osVersion
+} from 'react-device-detect';
 
 function DeviceDetect() {
 	return (
@@ -9,6 +19,20 @@ function DeviceDetect() {
 			<MobileView>
 				<h1>This is rendered only on mobile</h1>
 			</MobileView>
+			<h2>
+				You are using {browserName} at version {browserVersion}
+			</h2>
+			<h2>
+				You are using {engineName} engine at version {engineVersion}
+			</h2>
+			<h2>
+				You are using {osName} at version {osVersion}
+			</h2>
+			{isMobile ? (
+				<h2>You are using mobile device</h2>
+			) : (
+				<h2>You are using desktop or tablet device</h2>
+			)}
 		</>
 	);
 }
